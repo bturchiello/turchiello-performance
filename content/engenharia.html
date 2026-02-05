@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engenharia Avançada & ECU | Turchiello Performance</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .diagram-placeholder {
+            background: #252525;
+            border: 2px dashed #444;
+            color: #888;
+            padding: 40px;
+            text-align: center;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .diagram-placeholder i { font-size: 3rem; margin-bottom: 10px; display: block; }
+        
+        .quote-box {
+            border-left: 4px solid #e63946;
+            background: rgba(230, 57, 70, 0.05);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+        }
+        
+        .ft-color-box { display: inline-block; width: 15px; height: 15px; margin-right: 5px; border-radius: 50%; vertical-align: middle; border: 1px solid #fff; }
+        .c-red { background: #ff4444; }
+        .c-black { background: #000; }
+        .c-yellow { background: #ffeb3b; }
+        .c-blue { background: #2196f3; }
+        .c-white { background: #fff; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-gear"></i>
+                <h1>TURCHIELLO <span>PERFORMANCE</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#" class="active">Engenharia & ECU</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="content-page">
+            <div class="page-header">
+                <h2>Engenharia Avançada e Gestão Eletrônica</h2>
+                <p class="subtitle">Acervo técnico: FuelTech, Fluxo de Cabeçote (Vizard) e Dinâmica de Fluidos.</p>
+            </div>
+
+            <!-- SEÇÃO FUELTECH -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-microchip"></i> FuelTech: Padrões de Instalação</h3>
+                <p>Diretrizes oficiais extraídas dos manuais FT450/550/600 e FTSPARK.</p>
+
+                <div class="scenarios">
+                    <div class="scenario">
+                        <h4><i class="fa-solid fa-plug"></i> Pinagem Padrão (Chicote A)</h4>
+                        <table class="tech-table">
+                            <thead>
+                                <tr>
+                                    <th>Cor do Fio</th>
+                                    <th>Função</th>
+                                    <th>Observação Crítica</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="ft-color-box c-red"></span> Vermelho</td>
+                                    <td>12V Pós-Chave</td>
+                                    <td>Alimentação da ECU.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ft-color-box c-black"></span> Preto</td>
+                                    <td>Terra de Potência</td>
+                                    <td>Ligar direto no bloco ou bateria.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ft-color-box c-white"></span> Preto/Branco</td>
+                                    <td>Terra de Sinal</td>
+                                    <td><strong>NUNCA</strong> ligar no chassi. Apenas sensores.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ft-color-box c-yellow"></span> Amarelo</td>
+                                    <td>Saídas Injetores</td>
+                                    <td>Banca A (Injeção).</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="ft-color-box c-blue"></span> Azul</td>
+                                    <td>Saídas Ignição</td>
+                                    <td>Sinal para SparkPRO ou Smart Coil.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="note warning">
+                    <strong>Alerta FTSPARK:</strong> Equipamento CDI Capacitivo (400V-600V). Utilize apenas com bobinas "dumb" (sem driver integrado). O uso com bobinas smart pode queimar o equipamento.
+                </div>
+            </section>
+
+            <!-- SEÇÃO ENGENHARIA VIZARD -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-wind"></i> Fluxo de Cabeçote (David Vizard)</h3>
+                
+                <div class="quote-box">
+                    "Port Velocity is the limit of power." (A velocidade da porta é o limite da potência.)
+                    <br><small>- David Vizard</small>
+                </div>
+
+                <p>Não basta abrir o duto ao máximo. A eficiência volumétrica depende da inércia do ar (Ram Effect).</p>
+
+                <div class="diagram-placeholder">
+                    <i class="fa-solid fa-image"></i>
+                    <p>[Espaço para Gráfico: Curva de Fluxo vs Levante de Válvula]</p>
+                    <small>A área de cortina (Curtain Area) deve ser monitorada para não exceder a área da garganta.</small>
+                </div>
+
+                <ul class="spec-list">
+                    <li><strong>Área de Cortina:</strong> Circunferência da válvula × Levante.</li>
+                    <li><strong>Choke Flow:</strong> Se a velocidade do ar passar de 0.55 Mach, o fluxo trava (saturação).</li>
+                    <li><strong>Regra Prática:</strong> Dutos menores com alta velocidade enchem melhor o cilindro em baixa/média rotação do que dutos gigantes.</li>
+                </ul>
+            </section>
+
+            <!-- SEÇÃO CAMES -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-timeline"></i> Comandos de Válvula (Camshafts)</h3>
+                <p>Seleção de Lobe Center (LSA) baseada na aplicação:</p>
+
+                <div class="scenarios">
+                    <div class="scenario">
+                        <h4>LSA Fechado (ex: 106°)</h4>
+                        <p>Maior cruzamento (overlap). Marcha lenta "embaralhada". Pico de torque violento em faixa estreita. Típico de aspirado de competição.</p>
+                    </div>
+                    <div class="scenario recommended">
+                        <h4>LSA Aberto (ex: 112°-114°)</h4>
+                        <p>Menor cruzamento. Marcha lenta lisa e vácuo estável. Faixa de torque plana. <strong>Ideal para Turbo e Carros de Rua.</strong></p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Turchiello Performance. Engineering Database.</p>
+    </footer>
+</body>
+</html>
