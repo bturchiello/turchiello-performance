@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadoras Técnicas | Turchiello Performance</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .calc-box { background: #252525; padding: 20px; border-radius: 8px; margin-bottom: 30px; border: 1px solid #333; }
+        .calc-box h4 { margin-bottom: 15px; color: #e63946; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; color: #a0a0a0; }
+        .form-group input { width: 100%; padding: 10px; background: #121212; border: 1px solid #444; color: #fff; border-radius: 4px; }
+        .btn-calc { background: #e63946; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-calc:hover { background: #c92a35; }
+        .result { margin-top: 15px; padding: 10px; background: rgba(230, 57, 70, 0.1); border-left: 3px solid #e63946; display: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-gear"></i>
+                <h1>TURCHIELLO <span>PERFORMANCE</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#" class="active">Ferramentas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="content-page">
+            <div class="page-header">
+                <h2>Calculadoras de Engenharia</h2>
+                <p class="subtitle">Ferramentas rápidas para dimensionamento e conversão.</p>
+            </div>
+
+            <div class="grid-topics">
+                <!-- Conversor Torque -->
+                <div class="calc-box">
+                    <h4><i class="fa-solid fa-arrow-rotate-right"></i> Conversor de Torque</h4>
+                    <div class="form-group">
+                        <label>Torque em kgfm:</label>
+                        <input type="number" id="kgfmInput" placeholder="Ex: 25">
+                    </div>
+                    <button class="btn-calc" onclick="converterTorque()">Converter</button>
+                    <div id="resTorque" class="result">
+                        <span id="valNm">0</span> Nm <br>
+                        <span id="valLbft">0</span> lb-ft
+                    </div>
+                </div>
+
+                <!-- Cilindrada -->
+                <div class="calc-box">
+                    <h4><i class="fa-solid fa-flask"></i> Cálculo de Cilindrada</h4>
+                    <div class="form-group">
+                        <label>Diâmetro do Pistão (mm):</label>
+                        <input type="number" id="diametro" placeholder="Ex: 82.5">
+                    </div>
+                    <div class="form-group">
+                        <label>Curso do Virabrequim (mm):</label>
+                        <input type="number" id="curso" placeholder="Ex: 92.8">
+                    </div>
+                    <div class="form-group">
+                        <label>Nº Cilindros:</label>
+                        <input type="number" id="cilindros" value="4">
+                    </div>
+                    <button class="btn-calc" onclick="calcularCilindrada()">Calcular</button>
+                    <div id="resCilindrada" class="result">
+                        Volume Total: <strong id="valCc">0</strong> cc
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        function converterTorque() {
+            const kgfm = parseFloat(document.getElementById('kgfmInput').value);
+            if(isNaN(kgfm)) return;
+            
+            const nm = (kgfm * 9.80665).toFixed(2);
+            const lbft = (kgfm * 7.233).toFixed(2);
+            
+            document.getElementById('valNm').innerText = nm;
+            document.getElementById('valLbft').innerText = lbft;
+            document.getElementById('resTorque').style.display = 'block';
+        }
+
+        function calcularCilindrada() {
+            const d = parseFloat(document.getElementById('diametro').value);
+            const c = parseFloat(document.getElementById('curso').value);
+            const n = parseFloat(document.getElementById('cilindros').value);
+            
+            if(isNaN(d) || isNaN(c)) return;
+
+            // V = (π * (d/2)² * h * n) / 1000
+            const raio = d / 2;
+            const volUnitario = Math.PI * (raio * raio) * c; // em mm³
+            const volTotal = (volUnitario * n) / 1000; // para cc
+
+            document.getElementById('valCc').innerText = Math.round(volTotal);
+            document.getElementById('resCilindrada').style.display = 'block';
+        }
+    </script>
+    
+    <footer>
+        <p>&copy; 2026 Turchiello Performance. Engineering Database.</p>
+    </footer>
+</body>
+</html>
