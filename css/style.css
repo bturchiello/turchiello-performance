@@ -65,6 +65,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
+    align-items: center; /* Alinha verticalmente com o botão */
 }
 
 nav a {
@@ -78,6 +79,21 @@ nav a {
 
 nav a:hover, nav a.active {
     color: var(--primary);
+}
+
+/* Destaque para botão */
+nav a.nav-highlight {
+    background-color: var(--primary);
+    color: #fff !important;
+    padding: 8px 18px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a.nav-highlight:hover {
+    background-color: #c92a35; /* Darker red */
+    color: #fff;
+    text-decoration: none;
 }
 
 #intro {
