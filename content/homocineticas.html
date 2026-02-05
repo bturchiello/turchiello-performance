@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homocinéticas & Semieixos | Turchiello Performance</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-gear"></i>
+                <h1>TURCHIELLO <span>PERFORMANCE</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="#" class="active">Motor & Powertrain</a></li>
+                    <li><a href="#">Suspensão</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="content-page">
+            <div class="page-header">
+                <h2>Homocinéticas e Semieixos</h2>
+                <p class="subtitle">Especificações técnicas, tabela de estrias e upgrades para linha VW AP.</p>
+            </div>
+
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-ruler-combined"></i> Especificações Padrão (VW Santana/Quantum)</h3>
+                <p>A configuração mais comum para a linha Santana (Plataforma B2/BX) utiliza a seguinte relação de estrias:</p>
+                
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Componente</th>
+                            <th>Estrias Externas (Cubo)</th>
+                            <th>Estrias Internas (Eixo)</th>
+                            <th>Aplicação Típica</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Homocinética Fixa (Roda)</strong></td>
+                            <td>22 dentes</td>
+                            <td>30 dentes</td>
+                            <td>Santana 1.8/2.0, Quantum</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Homocinética Deslizante (Câmbio)</strong></td>
+                            <td>N/A (Flange 6 furos)</td>
+                            <td>33 dentes</td>
+                            <td>Câmbio 020 / 02A (vária por ano)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="note warning">
+                    <strong>Atenção:</strong> Veículos com ABS podem manter a contagem de estrias, mas a carcaça da junta muda para acomodar o anel fônico.
+                </div>
+            </section>
+
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-arrow-up-right-dots"></i> Upgrade de Resistência (OEM+)</h3>
+                <p>Para projetos de maior potência que desejam manter os semieixos originais (30 estrias) mas aumentar a resistência da ponta de eixo, a solução recomendada é a linha <strong>Golf MK4 / Audi A3 (8L)</strong>.</p>
+                
+                <ul class="spec-list">
+                    <li><strong>Origem:</strong> Golf GTI / Audi A3 1.8T (150/180cv)</li>
+                    <li><strong>Estrias Externas:</strong> 36 dentes (vs 22 do Santana)</li>
+                    <li><strong>Estrias Internas:</strong> 30 dentes (Plug & Play no semieixo Santana)</li>
+                    <li><strong>Vantagem:</strong> Ponta de eixo muito mais grossa, suporta maior torque e reduz risco de quebra na arrancada.</li>
+                </ul>
+            </section>
+
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Adaptação de Furação (5x120)</h3>
+                <p>A tentativa de instalar rodas 5x120 (BMW/GM) em conjunto com a mecânica VW exige cuidados especiais. Não existe peça original com a combinação <strong>36 estrias + 5x120</strong>.</p>
+                
+                <div class="scenarios">
+                    <div class="scenario">
+                        <h4>Opção 1: Reduração (Risco Alto)</h4>
+                        <p>Refurar o cubo do Golf (5x100 para 5x120). <strong>Não recomendado.</strong> O flange original tem diâmetro insuficiente (~135mm), deixando a borda do furo muito fina e propensa a quebras catastróficas.</p>
+                    </div>
+                    
+                    <div class="scenario recommended">
+                        <h4>Opção 2: Cubo Forjado (Recomendado)</h4>
+                        <p>Fabricação de cubo em aço 4340 billet sob medida. As principais empresas de performance (Sapinho, Ducato, etc) fabricam a peça bruta já com a estria brochada para VW (36 dentes) e a flange usinada na medida correta para 5x120.</p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Turchiello Performance. Engineering Database.</p>
+    </footer>
+
+    <style>
+        /* CSS Inline específico para páginas de conteúdo (ou mover para style.css depois) */
+        .page-header { margin-bottom: 40px; border-bottom: 1px solid #333; padding-bottom: 20px; }
+        .subtitle { color: #a0a0a0; font-size: 1.2rem; }
+        .tech-section { margin-bottom: 50px; }
+        .tech-section h3 { color: #e63946; margin-bottom: 15px; font-size: 1.4rem; }
+        
+        .tech-table { width: 100%; border-collapse: collapse; margin: 20px 0; background: #1e1e1e; }
+        .tech-table th, .tech-table td { padding: 12px; text-align: left; border-bottom: 1px solid #333; }
+        .tech-table th { background: #252525; color: #fff; }
+        
+        .note { padding: 15px; border-radius: 4px; margin-top: 20px; border-left: 4px solid; }
+        .note.warning { background: rgba(255, 193, 7, 0.1); border-color: #ffc107; color: #e0e0e0; }
+        
+        .spec-list { list-style: none; padding-left: 0; }
+        .spec-list li { margin-bottom: 10px; padding-left: 20px; position: relative; }
+        .spec-list li::before { content: "•"; color: #e63946; position: absolute; left: 0; font-weight: bold; }
+        
+        .scenarios { display: grid; gap: 20px; margin-top: 20px; }
+        .scenario { background: #1e1e1e; padding: 20px; border: 1px solid #333; border-radius: 6px; }
+        .scenario.recommended { border-color: #28a745; }
+        .scenario h4 { margin-bottom: 10px; }
+    </style>
+</body>
+</html>
