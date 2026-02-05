@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuelTech & Elétrica | Turchiello Performance</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .ft-color-box { display: inline-block; width: 12px; height: 12px; margin-right: 8px; border-radius: 50%; border: 1px solid #fff; }
+        .c-red { background: #ff4444; }
+        .c-black { background: #000; }
+        .c-white { background: #fff; }
+        .c-yellow { background: #ffeb3b; }
+        .c-blue { background: #2196f3; }
+        .c-gray { background: #9e9e9e; }
+        .c-green { background: #4caf50; }
+        .c-violet { background: #9c27b0; }
+        
+        .pinout-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .alert-box { border: 1px solid #ff4444; background: rgba(255, 68, 68, 0.1); padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .alert-box strong { color: #ff4444; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-microchip"></i>
+                <h1>TURCHIELLO <span>ECU</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="teoria_motores.html">Teoria de Motores</a></li>
+                    <li><a href="#" class="active">FuelTech</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="content-page">
+            <div class="page-header">
+                <h2>Gestão Eletrônica e Chicotes</h2>
+                <p class="subtitle">Dados técnicos extraídos dos manuais FT450, FT550, FT600, FTSPARK e WB-O2 Nano.</p>
+            </div>
+
+            <!-- CHICOTE A -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-plug"></i> Conector A (Principal) - FT450/550/600</h3>
+                <p>O conector A é responsável pela alimentação, ignição e injeção principal. É o coração da instalação.</p>
+                
+                <table class="tech-table">
+                    <thead>
+                        <tr>
+                            <th>Pino</th>
+                            <th>Cor</th>
+                            <th>Função</th>
+                            <th>Detalhes Técnicos</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><span class="ft-color-box c-black"></span> Preto</td>
+                            <td>Terra de Potência</td>
+                            <td>Ligar direto ao negativo da bateria ou bloco do motor. Fio grosso (2.5mm²).</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><span class="ft-color-box c-red"></span> Vermelho</td>
+                            <td>12V Pós-Chave</td>
+                            <td>Alimentação da ECU. Deve vir de um relé principal.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><span class="ft-color-box c-white"></span> Branco/Vermelho</td>
+                            <td>FT CAN A (Hi)</td>
+                            <td>Comunicação com WB-O2 Nano e Dashboards.</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><span class="ft-color-box c-yellow"></span> Amarelo/Vermelho</td>
+                            <td>FT CAN A (Lo)</td>
+                            <td>Par trançado com o fio acima.</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><span class="ft-color-box c-blue"></span> Azul</td>
+                            <td>Saída de Ignição A</td>
+                            <td>Cilindro 1 (ou par 1-4 em centelha perdida). Sinal 5V/12V.</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td><span class="ft-color-box c-yellow"></span> Amarelo</td>
+                            <td>Saída de Injeção A</td>
+                            <td>Banca A de injetores (Pulso Negativo/Terra).</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td><span class="ft-color-box c-black"></span> Preto/Branco</td>
+                            <td>Terra de Sinal</td>
+                            <td><strong>CRÍTICO:</strong> Ligar APENAS nos sensores (TPS, MAP, Temp). NUNCA ligar no chassi.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- FTSPARK -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-bolt"></i> FTSPARK (Ignição Capacitiva de Alta Energia)</h3>
+                <div class="alert-box">
+                    <i class="fa-solid fa-triangle-exclamation"></i> <strong>PERIGO DE CHOQUE E DANO:</strong>
+                    <p>O FTSPARK gera tensões primárias de 400V a 600V. Isso é letal e queima multímetros comuns.</p>
+                </div>
+                
+                <ul class="spec-list">
+                    <li><strong>Compatibilidade de Bobinas:</strong> Use APENAS bobinas sem driver (ignitor) integrado. Bobinas "inteligentes" (Smart Coils) explodem se ligadas no FTSPARK.</li>
+                    <li><strong>Velas e Cabos:</strong> Obrigatório uso de componentes RESISTIVOS. A alta energia gera ruído eletromagnético (EMI) que pode travar a ECU se usar cabos de cobre direto.</li>
+                    <li><strong>Alimentação:</strong> Requer relé de estado sólido ou relé de 40A/70A exclusivo. Fio de 4mm² direto da bateria.</li>
+                </ul>
+            </section>
+
+            <!-- SONDA NANO -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-gauge-high"></i> WB-O2 Nano (Sonda Lambda)</h3>
+                <p>Leitor e condicionador de sonda banda larga (Bosch LSU 4.2 ou 4.9).</p>
+                
+                <div class="scenarios">
+                    <div class="scenario">
+                        <h4>Posicionamento no Escape</h4>
+                        <p>A sonda deve ficar entre <strong>50cm e 80cm</strong> da válvula de escape do cabeçote.</p>
+                        <ul>
+                            <li><strong>Muito perto:</strong> Superaquece e queima (Erro de sensor).</li>
+                            <li><strong>Muito longe:</strong> Esfria e fica lenta (delay na correção da malha fechada).</li>
+                            <li><strong>Ângulo:</strong> Instalar entre 10h e 2h (ponteiros do relógio) para evitar acúmulo de água condensada no sensor.</li>
+                        </ul>
+                    </div>
+                    <div class="scenario recommended">
+                        <h4>Diagnóstico de Display</h4>
+                        <ul>
+                            <li><strong>Display "Heat":</strong> Aquecendo a cerâmica interna (~750°C).</li>
+                            <li><strong>Display "Hi":</strong> Mistura muito pobre (Excesso de ar).</li>
+                            <li><strong>Display "Lo":</strong> Mistura muito rica.</li>
+                            <li><strong>Erro "Htr":</strong> Falha no aquecedor (Fio rompido ou sonda morta).</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ATERRAMENTO -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-ground"></i> Aterramento: O Segredo do Sucesso</h3>
+                <p>90% dos problemas de "falha em alta", "corte de ignição" ou "leitura doida" são aterramento ruim.</p>
+                <ul class="spec-list">
+                    <li><strong>Terra de Potência (Preto):</strong> Deve ir para o Bloco do Motor ou Negativo da Bateria. Deve ser curto e grosso.</li>
+                    <li><strong>Terra de Sinal (Preto/Branco):</strong> Deve ser o "retorno" dos sensores. Ele sai da ECU, vai até o sensor TPS/Temp e "morre" lá. Não aterre esse fio na lataria! Se fizer isso, cria um "loop de terra" e o ruído do alternador entra na leitura dos sensores.</li>
+                </ul>
+            </section>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Turchiello Performance. Engineering Database.</p>
+    </footer>
+</body>
+</html>

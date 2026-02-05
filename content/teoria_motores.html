@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria Avançada de Motores | Turchiello Performance</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .formula-box { background: #111; padding: 15px; border-left: 3px solid #e63946; font-family: monospace; font-size: 1.1rem; margin: 10px 0; }
+        .vizard-rule { border: 1px solid #ffd700; background: rgba(255, 215, 0, 0.05); padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .vizard-rule h4 { color: #ffd700; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h1>TURCHIELLO <span>ENGINEERING</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="fueltech.html">FuelTech & ECU</a></li>
+                    <li><a href="#" class="active">Teoria</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <article class="content-page">
+            <div class="page-header">
+                <h2>Dinâmica de Fluidos e Preparação de Cabeçotes</h2>
+                <p class="subtitle">Conceitos avançados baseados em David Vizard, Prof. Blair e Engenharia de Competição.</p>
+            </div>
+
+            <!-- FLUXO DE CABEÇOTE -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-wind"></i> Fluxo de Cabeçote (Port Flow)</h3>
+                
+                <div class="vizard-rule">
+                    <h4><i class="fa-solid fa-crown"></i> A Lei de Vizard</h4>
+                    <p>"A velocidade da porta é o limite da potência." (Port Velocity is the limit of power).</p>
+                    <p>Muitos preparadores erram ao arrombar os dutos. Um duto muito grande diminui a velocidade do ar. Sem velocidade, não há <strong>Enchimento Inercial (Ram Effect)</strong> quando o pistão desacelera no PMI.</p>
+                </div>
+
+                <h4>Conceitos Críticos:</h4>
+                <ul class="spec-list">
+                    <li><strong>Área de Cortina (Curtain Area):</strong> É a área lateral aberta pela válvula.
+                        <div class="formula-box">A_cortina = Circunferência × Levante</div>
+                    </li>
+                    <li><strong>Ponto de Saturação (Choke):</strong> Quando a área de cortina supera a área da garganta da válvula, o fluxo para de crescer linearmente. Levantar a válvula além desse ponto é desperdício mecânico (só serve para cansar a mola).</li>
+                    <li><strong>Velocidade Sônica:</strong> O ar não deve ultrapassar <strong>0.55 Mach</strong> na garganta. Se passar disso, cria-se onda de choque e o fluxo trava.</li>
+                </ul>
+            </section>
+
+            <!-- COMANDOS -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-gears"></i> Comandos de Válvula (Camshaft Design)</h3>
+                <p>O comando é o cérebro mecânico do motor. Ele decide onde a potência vai morar.</p>
+
+                <div class="scenarios">
+                    <div class="scenario">
+                        <h4>Lobe Separation Angle (LSA)</h4>
+                        <p>É o ângulo entre os centros dos cames de admissão e escape.</p>
+                        <ul>
+                            <li><strong>LSA Fechado (104°-108°):</strong> Aumenta o "Overlap" (cruzamento). Gera um pico de torque muito alto em uma faixa estreita de RPM. A lenta fica "embaralhada" (o famoso *pop-pop-pop*) porque a compressão vaza pelo escape em baixa rotação. Bom para aspirados de arrancada.</li>
+                            <li><strong>LSA Aberto (112°-116°):</strong> Diminui o cruzamento. A lenta fica lisa, o vácuo sobe. A curva de torque é mais plana e larga. <strong>Essencial para motores Turbo</strong> (para não jogar a pressão do turbo direto no escape) e carros de rua.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>O Levante Certo (The Right Lift)</h4>
+                <p>David Vizard ensina: "O levante ideal é aquele onde seu cabeçote ainda está ganhando fluxo".</p>
+                <p>Se seu cabeçote para de fluir com 10mm de levante, colocar um comando de 12mm não vai dar potência extra, apenas aumentará o desgaste.</p>
+            </section>
+
+            <!-- DINÂMICA DE FLUIDOS -->
+            <section class="tech-section">
+                <h3><i class="fa-solid fa-water"></i> Ondas de Pressão (Prof. Blair)</h3>
+                <p>O escape não é um fluxo contínuo, é uma metralhadora de pulsos de pressão.</p>
+                <ul class="spec-list">
+                    <li><strong>Pulso de Pressão:</strong> Sai quando a válvula de escape abre. Viaja pelo tubo na velocidade do som.</li>
+                    <li><strong>Onda de Rarefação (Scavenging):</strong> Quando o pulso chega no final do coletor (na atmosfera ou união 4x1), ele reflete e volta como uma onda de vácuo (pressão negativa).</li>
+                    <li><strong>Sintonia (Tuning):</strong> O objetivo do coletor dimensionado é fazer essa onda de vácuo chegar na válvula de escape EXATAMENTE na hora do cruzamento (overlap), para "chupar" a mistura nova para dentro do cilindro.</li>
+                </ul>
+            </section>
+
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Turchiello Performance. Engineering Database.</p>
+    </footer>
+</body>
+</html>
